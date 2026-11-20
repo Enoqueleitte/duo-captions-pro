@@ -16,7 +16,6 @@
       overflow-x: hidden;
     }
 
-    /* Grade cibernética animada de fundo */
     .bg-cyber-grid {
       background-size: 48px 48px;
       background-image:
@@ -24,7 +23,6 @@
         linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
     }
 
-    /* Orbes de luz flutuantes */
     @keyframes floatSlow {
       0%, 100% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(25px, -30px) scale(1.08); }
@@ -60,7 +58,6 @@
       animation: pulseGlow 5s ease-in-out infinite;
     }
 
-    /* Cartão Anual com borda animada giratória */
     .annual-card-wrapper {
       position: relative;
       border-radius: 1.25rem;
@@ -110,7 +107,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Botões com reflexo animado (shimmer) */
     .btn-shimmer {
       position: relative;
       overflow: hidden;
@@ -153,7 +149,6 @@
       box-shadow: 0 12px 34px rgba(56, 189, 248, 0.5);
     }
 
-    /* Animação de entrada ao rolar a página */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -165,7 +160,6 @@
       transform: translateY(0);
     }
 
-    /* Efeito Tilt 3D suave */
     .tilt-card {
       transform-style: preserve-3d;
       transition: transform 0.15s ease-out;
@@ -183,8 +177,8 @@
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-40 border-b border-sky-500/20 bg-[#040711]/80 backdrop-blur-xl">
-    <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group">
+    <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between gap-3">
+      <a href="#" class="flex items-center gap-3 group shrink-0">
         <div class="w-11 h-11 rounded-xl p-[2px] bg-gradient-to-br from-sky-400 via-indigo-400 to-yellow-300 shadow-lg shadow-sky-500/30 group-hover:scale-105 transition-transform">
           <img
             src="https://i.imgur.com/fmMUiiQ.png"
@@ -199,12 +193,9 @@
         </div>
       </a>
 
-      <div class="flex items-center gap-3">
-        <a href="#recursos" class="hidden sm:inline-block text-xs font-semibold text-slate-300 hover:text-sky-300 transition">
-          Recursos
-        </a>
-        <a href="#como-funciona" class="hidden sm:inline-block text-xs font-semibold text-slate-300 hover:text-sky-300 transition">
-          Ativação
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
+        <a href="#instalar" class="px-3.5 py-2 rounded-full text-xs font-bold bg-sky-500/15 border border-sky-400/40 text-sky-300 hover:bg-sky-500/25 transition">
+          Baixar Extensão
         </a>
         <a href="#planos" class="btn-shimmer btn-gold px-4 py-2 rounded-full text-xs font-extrabold">
           👑 Assinar Pro
@@ -249,11 +240,11 @@
         </ul>
 
         <div class="pt-2 flex flex-wrap gap-3">
-          <a href="#planos" class="btn-shimmer btn-gold px-6 py-3.5 rounded-xl font-black text-sm">
-            👑 Desbloquear Acesso Ilimitado
+          <a href="#instalar" class="btn-shimmer btn-cyan px-6 py-3.5 rounded-xl font-extrabold text-sm">
+            ⬇️ Baixar Agora Mesmo
           </a>
-          <a href="#recursos" class="px-5 py-3.5 rounded-xl font-semibold text-sm bg-slate-900/90 border border-slate-700 text-slate-200 hover:border-sky-400/60 hover:text-white transition">
-            Ver na prática ↓
+          <a href="#planos" class="btn-shimmer btn-gold px-6 py-3.5 rounded-xl font-black text-sm">
+            👑 Planos Pro
           </a>
         </div>
       </div>
@@ -271,6 +262,45 @@
             >
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAIXAR AGORA MESMO (CHROME WEB STORE & MICROSOFT EDGE) -->
+  <section id="instalar" class="max-w-5xl mx-auto px-5 py-10 reveal">
+    <div class="cyber-glass rounded-3xl p-6 sm:p-9 text-center space-y-6">
+      <div class="space-y-2">
+        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-500/15 border border-emerald-400/40 text-emerald-300">
+          Instalação Gratuita em 1 Clique
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">
+          Baixe agora mesmo no seu navegador
+        </h2>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto">
+          Adicione o <strong>Duo Captions Pro</strong> gratuitamente e comece usando seus <strong>10 minutos grátis por dia</strong> hoje mesmo.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-1">
+        <a
+          href="https://chromewebstore.google.com/detail/pcfpiffgnfjlkifnpicpnplilpmacggi?utm_source=item-share-cb"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-shimmer btn-cyan flex items-center justify-center gap-2.5 py-4 px-5 rounded-2xl font-extrabold text-sm"
+        >
+          <span>🌐</span>
+          <span>Baixar na Chrome Web Store</span>
+        </a>
+
+        <a
+          href="https://microsoftedge.microsoft.com/addons/detail/duo-captions-pro-legend/idpbhembijldcokjpmfifglgfkofploj?hl=pt-BR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2.5 py-4 px-5 rounded-2xl font-extrabold text-sm bg-slate-900/95 border border-sky-400/50 text-sky-200 hover:bg-sky-500/20 hover:border-sky-300 transition"
+        >
+          <span>🧩</span>
+          <span>Baixar no Microsoft Edge</span>
+        </a>
       </div>
     </div>
   </section>
@@ -362,7 +392,7 @@
           <a
             href="https://buy.stripe.com/3cIdR80MMgo1fUI8oWcjS03"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="btn-shimmer btn-cyan block w-full text-center py-4 px-5 rounded-xl font-extrabold text-sm"
           >
             Assinar Plano Mensal • R$ 12,90
@@ -403,7 +433,7 @@
             <a
               href="https://buy.stripe.com/5kQ8wOeDC8VzfUIfRocjS04"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="btn-shimmer btn-gold block w-full text-center py-4 px-5 rounded-xl font-black text-sm"
             >
               👑 Assinar Plano Anual • R$ 89,90
@@ -439,8 +469,17 @@
   </section>
 
   <!-- RODAPÉ -->
-  <footer class="max-w-6xl mx-auto px-5 py-8 border-t border-slate-800/80 text-center space-y-2">
-    <div class="flex items-center justify-center gap-2.5 mb-2">
+  <footer class="max-w-6xl mx-auto px-5 py-8 border-t border-slate-800/80 text-center space-y-3">
+    <div class="flex flex-wrap items-center justify-center gap-4 text-xs">
+      <a href="https://chromewebstore.google.com/detail/pcfpiffgnfjlkifnpicpnplilpmacggi?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold">
+        Chrome Web Store
+      </a>
+      <span class="text-slate-600">•</span>
+      <a href="https://microsoftedge.microsoft.com/addons/detail/duo-captions-pro-legend/idpbhembijldcokjpmfifglgfkofploj?hl=pt-BR" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold">
+        Microsoft Edge Add-ons
+      </a>
+    </div>
+    <div class="flex items-center justify-center gap-2.5">
       <img src="https://i.imgur.com/fmMUiiQ.png" alt="Duo Captions Pro" referrerpolicy="no-referrer" class="w-6 h-6 rounded-md object-cover">
       <span class="text-xs font-bold text-slate-300">Duo Captions Pro</span>
     </div>
@@ -454,7 +493,6 @@
 
   <!-- SCRIPTS DE ANIMAÇÃO (SCROLL REVEAL + TILT 3D) -->
   <script>
-    // 1. Revelar elementos ao rolar a página
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -465,7 +503,6 @@
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-    // 2. Efeito Tilt 3D suave no card principal ao mover o mouse
     const tiltCard = document.getElementById('heroTiltCard');
     if (tiltCard) {
       tiltCard.addEventListener('mousemove', (e) => {
