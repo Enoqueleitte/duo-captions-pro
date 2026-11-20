@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duo Captions Pro — Aprenda Inglês Assistindo Vídeos</title>
+  <link rel="icon" type="image/png" href="https://i.imgur.com/fmMUiiQ.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #040711;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    /* Grade cibernética animada de fundo */
+    .bg-cyber-grid {
+      background-size: 48px 48px;
+      background-image:
+        linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    }
+
+    /* Orbes de luz flutuantes */
+    @keyframes floatSlow {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(25px, -30px) scale(1.08); }
+    }
+
+    @keyframes floatReverse {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-25px, 25px) scale(1.05); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+      50% { box-shadow: 0 0 42px rgba(56, 189, 248, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+    }
+
+    @keyframes shimmerSweep {
+      0% { transform: translateX(-120%) skewX(-20deg); }
+      100% { transform: translateX(220%) skewX(-20deg); }
+    }
+
+    @keyframes spinBorder {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .orb-1 { animation: floatSlow 12s ease-in-out infinite; }
+    .orb-2 { animation: floatReverse 15s ease-in-out infinite; }
+
+    .cyber-glass {
+      background: rgba(13, 20, 38, 0.72);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      animation: pulseGlow 5s ease-in-out infinite;
+    }
+
+    /* Cartão Anual com borda animada giratória */
+    .annual-card-wrapper {
+      position: relative;
+      border-radius: 1.25rem;
+      padding: 2px;
+      overflow: hidden;
+      background: rgba(250, 204, 21, 0.25);
+      box-shadow: 0 20px 55px rgba(245, 158, 11, 0.18);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .annual-card-wrapper:hover {
+      transform: translateY(-6px);
+    }
+
+    .annual-card-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg, transparent 0%, #38bdf8 25%, #facc15 50%, #f59e0b 75%, transparent 100%);
+      animation: spinBorder 6s linear infinite;
+      z-index: 0;
+    }
+
+    .annual-card-inner {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(155deg, #0f172a 0%, #070b16 100%);
+      border-radius: calc(1.25rem - 2px);
+      height: 100%;
+    }
+
+    .standard-card {
+      background: linear-gradient(155deg, rgba(15, 23, 42, 0.88) 0%, rgba(7, 11, 22, 0.96) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.32);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease;
+    }
+
+    .standard-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.7);
+    }
+
+    .text-gradient-cyan {
+      background: linear-gradient(90deg, #38bdf8 0%, #818cf8 48%, #fde047 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Botões com reflexo animado (shimmer) */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-shimmer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+      transform: translateX(-120%) skewX(-20deg);
+      animation: shimmerSweep 3.4s infinite;
+    }
+
+    .btn-gold {
+      background: linear-gradient(90deg, #f59e0b 0%, #facc15 100%);
+      color: #040711;
+      box-shadow: 0 8px 28px rgba(245, 158, 11, 0.38);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px) scale(1.01);
+      filter: brightness(1.06);
+      box-shadow: 0 12px 34px rgba(250, 204, 21, 0.5);
+    }
+
+    .btn-cyan {
+      background: linear-gradient(90deg, #0284c7 0%, #4f46e5 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 28px rgba(2, 132, 199, 0.38);
+    }
+
+    .btn-cyan:hover {
+      transform: translateY(-2px) scale(1.01);
+      filter: brightness(1.08);
+      box-shadow: 0 12px 34px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Animação de entrada ao rolar a página */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Efeito Tilt 3D suave */
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased bg-cyber-grid selection:bg-sky-400 selection:text-slate-950 relative">
+
+  <!-- LUZES DE FUNDO ANIMADAS -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+    <div class="orb-1 absolute -top-24 -left-24 w-96 h-96 rounded-full bg-sky-500/15 blur-[110px]"></div>
+    <div class="orb-2 absolute top-1/3 -right-28 w-[28rem] h-[28rem] rounded-full bg-indigo-500/15 blur-[120px]"></div>
+    <div class="orb-1 absolute bottom-10 left-1/3 w-80 h-80 rounded-full bg-amber-400/10 blur-[110px]"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 border-b border-sky-500/20 bg-[#040711]/80 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl p-[2px] bg-gradient-to-br from-sky-400 via-indigo-400 to-yellow-300 shadow-lg shadow-sky-500/30 group-hover:scale-105 transition-transform">
+          <img
+            src="https://i.imgur.com/fmMUiiQ.png"
+            alt="Duo Captions Pro"
+            referrerpolicy="no-referrer"
+            class="w-full h-full rounded-[10px] object-cover bg-slate-950"
+          >
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-gradient-cyan">Duo Captions Pro</span>
+          <p class="text-[11px] text-slate-400">Legendas Duplas EN ↔ PT</p>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="#recursos" class="hidden sm:inline-block text-xs font-semibold text-slate-300 hover:text-sky-300 transition">
+          Recursos
+        </a>
+        <a href="#como-funciona" class="hidden sm:inline-block text-xs font-semibold text-slate-300 hover:text-sky-300 transition">
+          Ativação
+        </a>
+        <a href="#planos" class="btn-shimmer btn-gold px-4 py-2 rounded-full text-xs font-extrabold">
+          👑 Assinar Pro
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO + IMAGEM 1 (YlORrDL) -->
+  <section class="max-w-6xl mx-auto px-5 pt-12 pb-16">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-6 space-y-6 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/35 text-sky-300 text-xs font-semibold shadow-sm shadow-sky-500/10">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+          </span>
+          <span>10 minutos grátis todos os dias • Ativação automática</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-black leading-[1.12] tracking-tight text-white">
+          Domine o Inglês <span class="text-gradient-cyan">Assistindo Vídeos</span> e Séries!
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+          Transforme qualquer vídeo em uma aula imersiva com <strong>legendas duplas sincronizadas (Inglês + Português)</strong>, repetição infinita de trechos difíceis e banco de vocabulário salvo.
+        </p>
+
+        <ul class="space-y-3 text-sm sm:text-base text-slate-200">
+          <li class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+            <span><strong>Legendas Duplas em Tempo Real:</strong> Inglês em cima, Português embaixo.</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+            <span><strong>Loop Infinito de Frases (♾️):</strong> Rebobine a fala exata até compreender 100%.</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+            <span><strong>Vocabulário & Pronúncia:</strong> Salve frases com 1 clique e exporte seu backup.</span>
+          </li>
+        </ul>
+
+        <div class="pt-2 flex flex-wrap gap-3">
+          <a href="#planos" class="btn-shimmer btn-gold px-6 py-3.5 rounded-xl font-black text-sm">
+            👑 Desbloquear Acesso Ilimitado
+          </a>
+          <a href="#recursos" class="px-5 py-3.5 rounded-xl font-semibold text-sm bg-slate-900/90 border border-slate-700 text-slate-200 hover:border-sky-400/60 hover:text-white transition">
+            Ver na prática ↓
+          </a>
+        </div>
+      </div>
+
+      <!-- IMAGEM 1 COM EFEITO TILT 3D -->
+      <div class="lg:col-span-6 reveal">
+        <div id="heroTiltCard" class="tilt-card cyber-glass rounded-2xl p-2.5">
+          <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-sky-400/30">
+            <img
+              src="https://i.imgur.com/YlORrDL.png"
+              onerror="this.onerror=null; this.src='https://i.imgur.com/YlORrDL.jpg';"
+              alt="Duo Captions Pro — Demonstração das legendas duplas e loop infinito"
+              referrerpolicy="no-referrer"
+              class="w-full h-auto object-cover block transition-transform duration-500 hover:scale-[1.02]"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO VITRINE / SEGUNDA IMAGEM (VDatxkr) -->
+  <section id="recursos" class="max-w-6xl mx-auto px-5 py-14 reveal">
+    <div class="cyber-glass rounded-3xl p-6 sm:p-10 grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7 order-2 lg:order-1">
+        <div class="rounded-2xl overflow-hidden border border-sky-400/35 shadow-2xl shadow-sky-950/80 group">
+          <img
+            src="https://i.imgur.com/VDatxkr.png"
+            onerror="this.onerror=null; this.src='https://i.imgur.com/VDatxkr.jpg';"
+            alt="Duo Captions Pro — Interface e controles inteligentes"
+            referrerpolicy="no-referrer"
+            class="w-full h-auto object-cover block transition-transform duration-700 group-hover:scale-[1.03]"
+          >
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 order-1 lg:order-2 space-y-5">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-sky-500/15 border border-sky-400/35 text-sky-300">
+          Tecnologia Cyber HUD
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight">
+          Controle total sem tirar os olhos do vídeo
+        </h2>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Com a barra flutuante inteligente direto no player, você repete a frase atual, ativa o modo <strong>Loop Infinito</strong>, ouve a pronúncia isolada e salva expressões importantes com um único clique.
+        </p>
+
+        <div class="grid grid-cols-2 gap-3 pt-2">
+          <div class="p-3.5 rounded-xl bg-slate-950/80 border border-sky-500/20 hover:border-sky-400/50 transition">
+            <div class="text-lg mb-1">♾️</div>
+            <div class="text-xs font-bold text-white">Loop Infinito</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Repete a fala exata sem parar até você pausar.</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-950/80 border border-sky-500/20 hover:border-sky-400/50 transition">
+            <div class="text-lg mb-1">🎨</div>
+            <div class="text-xs font-bold text-white">3 Temas Visuais</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Cyber HUD, Dark Glass e Neon Glow.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE PLANOS: MENSAL E ANUAL -->
+  <section id="planos" class="max-w-5xl mx-auto px-5 py-14 reveal">
+    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+      <span class="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-yellow-400/15 border border-yellow-400/40 text-yellow-300">
+        Planos Duo Captions Pro
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-black text-white">
+        Escolha seu plano de acesso ilimitado
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Liberação imediata após o pagamento usando o mesmo e-mail cadastrado na Stripe.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-stretch">
+      <!-- PLANO MENSAL -->
+      <div class="standard-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm font-bold uppercase tracking-wider text-sky-300">Plano Mensal</span>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-sky-500/15 border border-sky-400/30 text-sky-300">
+              Flexível
+            </span>
+          </div>
+
+          <div class="flex items-baseline gap-1.5 my-4">
+            <span class="text-lg font-bold text-slate-400">R$</span>
+            <span class="text-5xl font-black text-white tracking-tight">12,90</span>
+            <span class="text-sm font-medium text-slate-400">/mês</span>
+          </div>
+          <p class="text-xs text-slate-400 mb-6">Cobrado mensalmente • Cancele quando quiser com 1 clique.</p>
+
+          <ul class="space-y-3 text-sm text-slate-200 border-t border-slate-800 pt-5">
+            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Uso ilimitado sem limite de 10 min/dia</li>
+            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Legendas duplas Inglês ↔ Português</li>
+            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Repetição Infinita (Loop ♾️) e por trechos</li>
+            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Banco de Vocabulário + Exportação JSON</li>
+            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Todos os temas visuais (Cyber HUD, Dark Glass, Neon)</li>
+          </ul>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="https://buy.stripe.com/3cIdR80MMgo1fUI8oWcjS03"
+            target="_blank"
+            rel="noopener"
+            class="btn-shimmer btn-cyan block w-full text-center py-4 px-5 rounded-xl font-extrabold text-sm"
+          >
+            Assinar Plano Mensal • R$ 12,90
+          </a>
+        </div>
+      </div>
+
+      <!-- PLANO ANUAL (DESTAQUE COM BORDA ANIMADA) -->
+      <div class="annual-card-wrapper">
+        <div class="annual-card-inner p-7 sm:p-8 flex flex-col justify-between relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm font-bold uppercase tracking-wider text-yellow-300">Plano Anual</span>
+            <span class="px-3 py-1 rounded-full text-[11px] font-black bg-gradient-to-r from-amber-500 to-yellow-300 text-slate-950 shadow">
+              🔥 ECONOMIZE 42%
+            </span>
+          </div>
+
+          <div>
+            <div class="flex items-baseline gap-1.5 my-4">
+              <span class="text-lg font-bold text-slate-400">R$</span>
+              <span class="text-5xl font-black text-white tracking-tight">89,90</span>
+              <span class="text-sm font-medium text-slate-400">/ano</span>
+            </div>
+            <p class="text-xs text-emerald-300 font-semibold mb-6">
+              Equivale a apenas R$ 7,49/mês (Economia de R$ 64,90 no ano!)
+            </p>
+
+            <ul class="space-y-3 text-sm text-slate-100 border-t border-yellow-500/20 pt-5">
+              <li class="flex items-center gap-2.5"><span class="text-yellow-300 font-bold">★</span> <strong>12 meses completos</strong> de acesso Pro ilimitado</li>
+              <li class="flex items-center gap-2.5"><span class="text-yellow-300 font-bold">★</span> Legendas duplas Inglês ↔ Português</li>
+              <li class="flex items-center gap-2.5"><span class="text-yellow-300 font-bold">★</span> Repetição Infinita (Loop ♾️) e Auto-Repetição</li>
+              <li class="flex items-center gap-2.5"><span class="text-yellow-300 font-bold">★</span> Mineração ilimitada de frases e backup</li>
+              <li class="flex items-center gap-2.5"><span class="text-yellow-300 font-bold">★</span> Todas as atualizações futuras incluídas</li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="https://buy.stripe.com/5kQ8wOeDC8VzfUIfRocjS04"
+              target="_blank"
+              rel="noopener"
+              class="btn-shimmer btn-gold block w-full text-center py-4 px-5 rounded-xl font-black text-sm"
+            >
+              👑 Assinar Plano Anual • R$ 89,90
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASSO A PASSO DE ATIVAÇÃO -->
+  <section id="como-funciona" class="max-w-5xl mx-auto px-5 py-10 reveal">
+    <div class="cyber-glass rounded-2xl p-6 sm:p-8">
+      <h3 class="text-lg font-extrabold text-white mb-6">🚀 Como ativar sua assinatura na extensão em 30 segundos</h3>
+      <div class="grid sm:grid-cols-3 gap-6 text-sm">
+        <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
+          <span class="text-xs font-black text-sky-400">PASSO 1</span>
+          <p class="font-bold text-white">Conclua a assinatura acima</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Informe seu melhor e-mail na tela segura de checkout da Stripe.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
+          <span class="text-xs font-black text-sky-400">PASSO 2</span>
+          <p class="font-bold text-white">Abra o popup da extensão</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Clique em <strong>"Entrar com E-mail e Senha (ou criar senha)"</strong> e selecione <strong>Primeiro Acesso</strong>.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
+          <span class="text-xs font-black text-sky-400">PASSO 3</span>
+          <p class="font-bold text-white">Crie sua senha e aproveite</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Sua conta Pro é validada automaticamente e todos os recursos são liberados na hora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="max-w-6xl mx-auto px-5 py-8 border-t border-slate-800/80 text-center space-y-2">
+    <div class="flex items-center justify-center gap-2.5 mb-2">
+      <img src="https://i.imgur.com/fmMUiiQ.png" alt="Duo Captions Pro" referrerpolicy="no-referrer" class="w-6 h-6 rounded-md object-cover">
+      <span class="text-xs font-bold text-slate-300">Duo Captions Pro</span>
+    </div>
+    <p class="text-xs text-slate-400">
+      © 2026 Duo Captions Pro — Todos os direitos reservados.
+    </p>
+    <p class="text-[11px] text-slate-500 max-w-2xl mx-auto">
+      Projeto independente compatível com plataformas de vídeo na web. Não possui vínculo, afiliação, patrocínio ou endosso de YouTube, Netflix ou Amazon Prime Video.
+    </p>
+  </footer>
+
+  <!-- SCRIPTS DE ANIMAÇÃO (SCROLL REVEAL + TILT 3D) -->
+  <script>
+    // 1. Revelar elementos ao rolar a página
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // 2. Efeito Tilt 3D suave no card principal ao mover o mouse
+    const tiltCard = document.getElementById('heroTiltCard');
+    if (tiltCard) {
+      tiltCard.addEventListener('mousemove', (e) => {
+        const rect = tiltCard.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        tiltCard.style.transform = `perspective(1000px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+      });
+      tiltCard.addEventListener('mouseleave', () => {
+        tiltCard.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+      });
+    }
+  </script>
+</body>
+</html>
