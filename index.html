@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Duo Captions Pro — Aprenda Inglês Assistindo Vídeos</title>
+  <title>Duo Captions Pro — Black Friday: 50% OFF no Primeiro Mês!</title>
   <link rel="icon" type="image/png" href="https://i.imgur.com/fmMUiiQ.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -38,6 +38,11 @@
       50% { box-shadow: 0 0 42px rgba(56, 189, 248, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
     }
 
+    @keyframes pulseBlackFriday {
+      0%, 100% { box-shadow: 0 0 28px rgba(244, 63, 94, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+      50% { box-shadow: 0 0 48px rgba(251, 191, 36, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+    }
+
     @keyframes shimmerSweep {
       0% { transform: translateX(-120%) skewX(-20deg); }
       100% { transform: translateX(220%) skewX(-20deg); }
@@ -56,6 +61,13 @@
       backdrop-filter: blur(16px);
       border: 1px solid rgba(56, 189, 248, 0.28);
       animation: pulseGlow 5s ease-in-out infinite;
+    }
+
+    .bf-glass {
+      background: linear-gradient(145deg, rgba(24, 12, 28, 0.88) 0%, rgba(11, 15, 29, 0.94) 55%, rgba(28, 19, 10, 0.88) 100%);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(251, 191, 36, 0.42);
+      animation: pulseBlackFriday 4.5s ease-in-out infinite;
     }
 
     .annual-card-wrapper {
@@ -89,6 +101,38 @@
       height: 100%;
     }
 
+    /* Destaque Black Friday no Plano Mensal */
+    .monthly-bf-wrapper {
+      position: relative;
+      border-radius: 1.25rem;
+      padding: 2px;
+      overflow: hidden;
+      background: rgba(244, 63, 94, 0.35);
+      box-shadow: 0 20px 50px rgba(244, 63, 94, 0.22);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .monthly-bf-wrapper:hover {
+      transform: translateY(-6px);
+    }
+
+    .monthly-bf-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg, transparent 0%, #f43f5e 25%, #facc15 50%, #38bdf8 75%, transparent 100%);
+      animation: spinBorder 5s linear infinite;
+      z-index: 0;
+    }
+
+    .monthly-bf-inner {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(160deg, #161026 0%, #090d1a 55%, #070b16 100%);
+      border-radius: calc(1.25rem - 2px);
+      height: 100%;
+    }
+
     .standard-card {
       background: linear-gradient(155deg, rgba(15, 23, 42, 0.88) 0%, rgba(7, 11, 22, 0.96) 100%);
       border: 1px solid rgba(56, 189, 248, 0.32);
@@ -103,6 +147,12 @@
 
     .text-gradient-cyan {
       background: linear-gradient(90deg, #38bdf8 0%, #818cf8 48%, #fde047 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-bf {
+      background: linear-gradient(90deg, #fb7185 0%, #facc15 50%, #fde047 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -137,6 +187,18 @@
       box-shadow: 0 12px 34px rgba(250, 204, 21, 0.5);
     }
 
+    .btn-bf {
+      background: linear-gradient(90deg, #e11d48 0%, #f59e0b 55%, #facc15 100%);
+      color: #040711;
+      box-shadow: 0 8px 28px rgba(225, 29, 72, 0.42);
+    }
+
+    .btn-bf:hover {
+      transform: translateY(-2px) scale(1.01);
+      filter: brightness(1.06);
+      box-shadow: 0 12px 34px rgba(250, 204, 21, 0.55);
+    }
+
     .btn-cyan {
       background: linear-gradient(90deg, #0284c7 0%, #4f46e5 100%);
       color: #ffffff;
@@ -166,18 +228,45 @@
     }
   </style>
 </head>
-<body class="min-h-screen antialiased bg-cyber-grid selection:bg-sky-400 selection:text-slate-950 relative">
+<body class="min-h-screen antialiased bg-cyber-grid selection:bg-amber-400 selection:text-slate-950 relative">
 
+  <!-- Efeitos de fundo -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
-    <div class="orb-1 absolute -top-24 -left-24 w-96 h-96 rounded-full bg-sky-500/15 blur-[110px]"></div>
+    <div class="orb-1 absolute -top-24 -left-24 w-96 h-96 rounded-full bg-rose-500/15 blur-[110px]"></div>
     <div class="orb-2 absolute top-1/3 -right-28 w-[28rem] h-[28rem] rounded-full bg-indigo-500/15 blur-[120px]"></div>
-    <div class="orb-1 absolute bottom-10 left-1/3 w-80 h-80 rounded-full bg-amber-400/10 blur-[110px]"></div>
+    <div class="orb-1 absolute bottom-10 left-1/3 w-80 h-80 rounded-full bg-amber-400/15 blur-[110px]"></div>
   </div>
 
-  <header class="sticky top-0 z-40 border-b border-sky-500/20 bg-[#040711]/80 backdrop-blur-xl">
+  <!-- Top Bar Oficial Black Friday -->
+  <div class="bg-gradient-to-r from-rose-600 via-amber-500 to-yellow-400 text-slate-950 py-2 px-4 text-center relative z-50 shadow-lg">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-extrabold">
+      <span class="px-2 py-0.5 rounded bg-slate-950 text-yellow-300 text-[10px] sm:text-xs font-black uppercase tracking-wider">
+        🔥 BLACK FRIDAY
+      </span>
+      <span>
+        <strong>50% OFF</strong> no 1º mês do Pro Mensal com o cupom
+      </span>
+      <button
+        type="button"
+        onclick="copiarCupom('DUOBLACK', this)"
+        title="Clique para copiar o cupom DUOBLACK"
+        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-slate-950 text-yellow-300 hover:bg-slate-900 transition font-mono font-black text-xs sm:text-sm border border-yellow-300/40 cursor-pointer"
+      >
+        <span>DUOBLACK</span>
+        <span class="text-[10px] font-sans uppercase bg-yellow-400/20 px-1.5 py-0.2 rounded text-yellow-200">Copiar</span>
+      </button>
+      <span class="hidden md:inline text-slate-900 font-bold">•</span>
+      <span class="text-xs font-black bg-slate-950/15 px-2.5 py-0.5 rounded uppercase tracking-wide">
+        ⏳ Por Tempo Limitado
+      </span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-amber-400/20 bg-[#040711]/85 backdrop-blur-xl">
     <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between gap-3">
       <a href="#" class="flex items-center gap-3 group shrink-0">
-        <div class="w-11 h-11 rounded-xl p-[2px] bg-gradient-to-br from-sky-400 via-indigo-400 to-yellow-300 shadow-lg shadow-sky-500/30 group-hover:scale-105 transition-transform">
+        <div class="w-11 h-11 rounded-xl p-[2px] bg-gradient-to-br from-rose-500 via-amber-400 to-sky-400 shadow-lg shadow-amber-500/25 group-hover:scale-105 transition-transform">
           <img
             src="https://i.imgur.com/fmMUiiQ.png"
             alt="Duo Captions Pro"
@@ -192,6 +281,9 @@
       </a>
 
       <div class="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
+        <a href="#black-friday" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-extrabold bg-rose-500/15 border border-rose-400/45 text-rose-300 hover:bg-rose-500/25 transition">
+          🏷️ Cupom 50% OFF
+        </a>
         <a href="#instalar" class="px-3.5 py-2 rounded-full text-xs font-bold bg-sky-500/15 border border-sky-400/40 text-sky-300 hover:bg-sky-500/25 transition">
           Baixar Extensão
         </a>
@@ -202,15 +294,21 @@
     </div>
   </header>
 
-  <section class="max-w-6xl mx-auto px-5 pt-12 pb-16">
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-5 pt-12 pb-12">
     <div class="grid lg:grid-cols-12 gap-10 items-center">
       <div class="lg:col-span-6 space-y-6 reveal">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/35 text-sky-300 text-xs font-semibold shadow-sm shadow-sky-500/10">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-          </span>
-          <span>10 minutos grátis todos os dias • Ativação automática</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/15 border border-rose-400/40 text-rose-300 text-xs font-extrabold shadow-sm">
+            <span>🔥 ESPECIAL BLACK FRIDAY: 50% OFF NO 1º MÊS</span>
+          </div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/35 text-sky-300 text-xs font-semibold">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+            <span>10 min grátis/dia</span>
+          </div>
         </div>
 
         <h1 class="text-4xl sm:text-5xl font-black leading-[1.12] tracking-tight text-white">
@@ -237,11 +335,11 @@
         </ul>
 
         <div class="pt-2 flex flex-wrap gap-3">
-          <a href="#instalar" class="btn-shimmer btn-cyan px-6 py-3.5 rounded-xl font-extrabold text-sm">
-            ⬇️ Baixar Agora Mesmo
+          <a href="#planos" class="btn-shimmer btn-bf px-6 py-3.5 rounded-xl font-black text-sm">
+            🔥 Garantir 50% OFF (Cupom DUOBLACK)
           </a>
-          <a href="#planos" class="btn-shimmer btn-gold px-6 py-3.5 rounded-xl font-black text-sm">
-            👑 Planos Pro
+          <a href="#instalar" class="btn-shimmer btn-cyan px-6 py-3.5 rounded-xl font-extrabold text-sm">
+            ⬇️ Baixar Extensão Grátis
           </a>
         </div>
       </div>
@@ -262,6 +360,73 @@
     </div>
   </section>
 
+  <!-- Banner de Campanha Black Friday -->
+  <section id="black-friday" class="max-w-6xl mx-auto px-5 py-6 reveal">
+    <div class="bf-glass rounded-3xl p-6 sm:p-9 relative overflow-hidden">
+      <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-amber-400/15 blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-12 -bottom-12 w-48 h-48 rounded-full bg-rose-500/15 blur-3xl pointer-events-none"></div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-rose-600 to-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider shadow">
+            <span>⚡ CAMPANHA OFICIAL BLACK FRIDAY</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+            Primeiro mês do <span class="text-gradient-bf">Pro Mensal pela metade do preço!</span>
+          </h2>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Aproveite a Black Friday do <strong>Duo Captions Pro</strong> para desbloquear legendas duplas ilimitadas, Loop Infinito (♾️) e mineração de vocabulário pagando apenas <strong class="text-yellow-300">R$ 6,45 no primeiro mês</strong> (de R$ 12,90).
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-1 text-xs text-slate-300">
+            <span class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">✓</span> Ativação imediata após o checkout</span>
+            <span class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">✓</span> Sem fidelidade — cancele quando quiser</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl bg-slate-950/90 border-2 border-dashed border-amber-400/70 p-5 sm:p-6 text-center space-y-4 shadow-2xl">
+            <div class="space-y-1">
+              <span class="text-[11px] font-extrabold uppercase tracking-widest text-amber-300">
+                Copie e aplique no checkout da Stripe
+              </span>
+              <div class="flex items-center justify-center gap-2 pt-1">
+                <span class="text-2xl sm:text-3xl font-mono font-black tracking-widest text-yellow-300 bg-amber-400/10 px-4 py-2 rounded-xl border border-amber-400/40 select-all">
+                  DUOBLACK
+                </span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <button
+                type="button"
+                onclick="copiarCupom('DUOBLACK', this)"
+                class="flex-1 py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm bg-slate-800 hover:bg-slate-700 text-yellow-300 border border-amber-400/40 transition cursor-pointer"
+              >
+                📋 Copiar Cupom
+              </button>
+              <a
+                href="https://buy.stripe.com/4gM14m9ji9ZDbEs9t0cjS08"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-shimmer btn-bf flex-1 py-3 px-4 rounded-xl font-black text-xs sm:text-sm text-center"
+              >
+                Usar Cupom Agora →
+              </a>
+            </div>
+
+            <p class="text-[11px] text-slate-400">
+              Na tela da Stripe, clique em <strong>"Adicionar código promocional"</strong> e cole <strong class="text-yellow-300">DUOBLACK</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Instalação -->
   <section id="instalar" class="max-w-5xl mx-auto px-5 py-10 reveal">
     <div class="cyber-glass rounded-3xl p-6 sm:p-9 text-center space-y-6">
       <div class="space-y-2">
@@ -336,6 +501,7 @@
     </div>
   </section>
 
+  <!-- Recursos -->
   <section id="recursos" class="max-w-6xl mx-auto px-5 py-14 reveal">
     <div class="cyber-glass rounded-3xl p-6 sm:p-10 grid lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-7 order-2 lg:order-1">
@@ -377,6 +543,7 @@
     </div>
   </section>
 
+  <!-- Planos -->
   <section id="planos" class="max-w-6xl mx-auto px-5 py-14 reveal">
     <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
       <span class="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-yellow-400/15 border border-yellow-400/40 text-yellow-300">
@@ -386,7 +553,7 @@
         Comece grátis ou libere o acesso ilimitado
       </h2>
       <p class="text-slate-400 text-sm sm:text-base">
-        Use <strong>10 minutos grátis todos os dias</strong> sem cartão de crédito ou assine o Pro para liberação imediata via Stripe.
+        Use <strong>10 minutos grátis todos os dias</strong> sem cartão de crédito ou aproveite o cupom <strong class="text-yellow-300">DUOBLACK</strong> no Plano Mensal.
       </p>
     </div>
 
@@ -427,63 +594,100 @@
         </div>
       </div>
 
-      <!-- PLANO MENSAL -->
-      <div class="standard-card rounded-2xl p-7 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-sm font-bold uppercase tracking-wider text-sky-300">Plano Mensal</span>
-            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-sky-500/15 border border-sky-400/30 text-sky-300">
-              Flexível
-            </span>
+      <!-- PLANO MENSAL COM DESTAQUE BLACK FRIDAY (CUPOM DUOBLACK) -->
+      <div class="monthly-bf-wrapper">
+        <div class="monthly-bf-inner p-7 flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-sm font-bold uppercase tracking-wider text-rose-300">Pro Mensal</span>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-black bg-gradient-to-r from-rose-600 to-amber-400 text-slate-950 shadow">
+                🔥 50% OFF NO 1º MÊS
+              </span>
+            </div>
+
+            <!-- Preço com destaque do desconto -->
+            <div class="my-3">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>De <span class="line-through text-slate-500 font-semibold">R$ 12,90</span> por apenas:</span>
+              </div>
+              <div class="flex items-baseline gap-1.5 mt-0.5">
+                <span class="text-lg font-bold text-yellow-300">R$</span>
+                <span class="text-5xl font-black text-white tracking-tight">6,45</span>
+                <span class="text-sm font-bold text-yellow-300">/1º mês</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">
+                Depois R$ 12,90/mês • Cancele quando quiser com 1 clique.
+              </p>
+            </div>
+
+            <!-- Box interativo do Cupom DUOBLACK -->
+            <div class="mb-5 p-3 rounded-xl bg-amber-400/10 border border-dashed border-amber-400/60 flex items-center justify-between gap-2">
+              <div class="text-left">
+                <p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">
+                  Cupom Black Friday (50% OFF)
+                </p>
+                <p class="font-mono font-black text-base text-white tracking-wider">
+                  DUOBLACK
+                </p>
+              </div>
+              <button
+                type="button"
+                onclick="copiarCupom('DUOBLACK', this)"
+                class="px-3 py-2 rounded-lg bg-amber-400 hover:bg-yellow-300 text-slate-950 font-black text-xs transition shrink-0 cursor-pointer shadow"
+              >
+                📋 Copiar
+              </button>
+            </div>
+
+            <ul class="space-y-3 text-sm text-slate-200 border-t border-rose-500/20 pt-4">
+              <li class="flex items-center gap-2.5"><span class="text-amber-400 font-bold">✓</span> Uso ilimitado sem limite de 10 min/dia</li>
+              <li class="flex items-center gap-2.5"><span class="text-amber-400 font-bold">✓</span> Legendas duplas Inglês ↔ Português</li>
+              <li class="flex items-center gap-2.5"><span class="text-amber-400 font-bold">✓</span> Repetição Infinita (Loop ♾️) e por trechos no YouTube</li>
+              <li class="flex items-center gap-2.5"><span class="text-amber-400 font-bold">✓</span> Banco de Vocabulário salvo no navegador</li>
+              <li class="flex items-center gap-2.5"><span class="text-amber-400 font-bold">✓</span> Todos os temas visuais (Cyber HUD, Dark Glass, Neon)</li>
+            </ul>
           </div>
 
-          <div class="flex items-baseline gap-1.5 my-4">
-            <span class="text-lg font-bold text-slate-400">R$</span>
-            <span class="text-5xl font-black text-white tracking-tight">12,90</span>
-            <span class="text-sm font-medium text-slate-400">/mês</span>
+          <div class="mt-7 space-y-2">
+            <a
+              href="https://buy.stripe.com/4gM14m9ji9ZDbEs9t0cjS08"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-shimmer btn-bf block w-full text-center py-4 px-5 rounded-xl font-black text-sm"
+            >
+              🔥 Assinar Mensal com 50% OFF
+            </a>
+            <p class="text-[11px] text-center text-amber-200/90">
+              Aplique o cupom <strong class="font-mono text-yellow-300">DUOBLACK</strong> no checkout
+            </p>
           </div>
-          <p class="text-xs text-slate-400 mb-6">Cobrado mensalmente • Cancele quando quiser com 1 clique.</p>
-
-          <ul class="space-y-3 text-sm text-slate-200 border-t border-slate-800 pt-5">
-            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Uso ilimitado sem limite de 10 min/dia</li>
-            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Legendas duplas Inglês ↔ Português</li>
-            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Repetição Infinita (Loop ♾️) e por trechos no YouTube</li>
-            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Banco de Vocabulário salvo no navegador</li>
-            <li class="flex items-center gap-2.5"><span class="text-sky-400 font-bold">✓</span> Todos os temas visuais (Cyber HUD, Dark Glass, Neon)</li>
-          </ul>
-        </div>
-
-        <div class="mt-8">
-          <a
-            href="https://buy.stripe.com/4gM14m9ji9ZDbEs9t0cjS08"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-shimmer btn-cyan block w-full text-center py-4 px-5 rounded-xl font-extrabold text-sm"
-          >
-            Assinar Plano Mensal • R$ 12,90
-          </a>
         </div>
       </div>
 
       <!-- PLANO ANUAL -->
       <div class="annual-card-wrapper">
         <div class="annual-card-inner p-7 flex flex-col justify-between relative">
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between mb-3">
             <span class="text-sm font-bold uppercase tracking-wider text-yellow-300">Plano Anual</span>
             <span class="px-3 py-1 rounded-full text-[11px] font-black bg-gradient-to-r from-amber-500 to-yellow-300 text-slate-950 shadow">
-              🔥 ECONOMIZE 42%
+              👑 ECONOMIZE 42%
             </span>
           </div>
 
           <div>
-            <div class="flex items-baseline gap-1.5 my-4">
-              <span class="text-lg font-bold text-slate-400">R$</span>
-              <span class="text-5xl font-black text-white tracking-tight">89,90</span>
-              <span class="text-sm font-medium text-slate-400">/ano</span>
+            <div class="my-3">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>De <span class="line-through text-slate-500 font-semibold">R$ 154,80</span> por apenas:</span>
+              </div>
+              <div class="flex items-baseline gap-1.5 mt-0.5">
+                <span class="text-lg font-bold text-yellow-300">R$</span>
+                <span class="text-5xl font-black text-white tracking-tight">89,90</span>
+                <span class="text-sm font-medium text-slate-400">/ano</span>
+              </div>
+              <p class="text-xs text-emerald-300 font-semibold mt-1.5 mb-5">
+                Equivale a apenas R$ 7,49/mês (Desconto de R$ 64,90 no ano!)
+              </p>
             </div>
-            <p class="text-xs text-emerald-300 font-semibold mb-6">
-              Equivale a apenas R$ 7,49/mês (Economia de R$ 64,90 no ano!)
-            </p>
 
             <ul class="space-y-3 text-sm text-slate-100 border-t border-yellow-500/20 pt-5">
               <li class="flex items-center gap-2.5"><span class="text-yellow-300 font-bold">★</span> 12 meses completos de acesso Pro ilimitado</li>
@@ -509,6 +713,7 @@
     </div>
   </section>
 
+  <!-- Como Funciona -->
   <section id="como-funciona" class="max-w-5xl mx-auto px-5 py-10 reveal">
     <div class="cyber-glass rounded-2xl p-6 sm:p-8">
       <h3 class="text-lg font-extrabold text-white mb-6">🚀 Como ativar sua assinatura na extensão em 30 segundos</h3>
@@ -516,7 +721,7 @@
         <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
           <span class="text-xs font-black text-sky-400">PASSO 1</span>
           <p class="font-bold text-white">Conclua a assinatura acima</p>
-          <p class="text-slate-400 text-xs leading-relaxed">Informe seu melhor e-mail na tela segura de checkout da Stripe.</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Informe seu melhor e-mail na tela segura da Stripe (use o cupom <strong class="text-yellow-300">DUOBLACK</strong> no Mensal).</p>
         </div>
         <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5">
           <span class="text-xs font-black text-sky-400">PASSO 2</span>
@@ -532,6 +737,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="max-w-6xl mx-auto px-5 py-8 border-t border-slate-800/80 text-center space-y-3">
     <div class="flex flex-wrap items-center justify-center gap-4 text-xs">
       <a href="https://chromewebstore.google.com/detail/pcfpiffgnfjlkifnpicpnplilpmacggi?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold">
@@ -554,7 +760,24 @@
     </p>
   </footer>
 
+  <!-- Toast de Confirmação de Cupom Copiado -->
+  <div
+    id="couponToast"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-5 right-5 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300"
+  >
+    <div class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-slate-950/95 border border-amber-400/70 shadow-2xl shadow-amber-500/20 text-xs sm:text-sm text-white">
+      <span class="text-lg">🎉</span>
+      <div>
+        <p class="font-extrabold text-yellow-300">Cupom DUOBLACK copiado!</p>
+        <p class="text-slate-300 text-xs">Cole no checkout para ganhar <strong>50% OFF</strong> no 1º mês.</p>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Animação de entrada ao rolar a página
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -565,6 +788,7 @@
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
+    // Efeito 3D no card principal
     const tiltCard = document.getElementById('heroTiltCard');
     if (tiltCard) {
       tiltCard.addEventListener('mousemove', (e) => {
@@ -576,6 +800,46 @@
       tiltCard.addEventListener('mouseleave', () => {
         tiltCard.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
       });
+    }
+
+    // Função para copiar o cupom DUOBLACK com fallback seguro para iframes
+    let toastTimeout;
+    function copiarCupom(codigo, botao) {
+      const tempInput = document.createElement('input');
+      tempInput.value = codigo;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      tempInput.setSelectionRange(0, 99999);
+
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(codigo).catch(() => {});
+        }
+      }
+      document.body.removeChild(tempInput);
+
+      // Feedback visual no botão clicado
+      if (botao) {
+        const textoOriginal = botao.innerHTML;
+        botao.innerHTML = '✓ Copiado!';
+        setTimeout(() => {
+          botao.innerHTML = textoOriginal;
+        }, 2000);
+      }
+
+      // Exibe notificação toast flutuante
+      const toast = document.getElementById('couponToast');
+      if (toast) {
+        toast.classList.remove('opacity-0', 'translate-y-3');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', 'translate-y-3');
+        }, 3500);
+      }
     }
   </script>
 </body>
